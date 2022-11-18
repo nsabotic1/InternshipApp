@@ -1,0 +1,35 @@
+.container
+{
+  margin: 0 25% 0 25%;
+}
+
+.comment-tile
+{
+  width: 60% !important;
+  border-top: 1px solid lightgray;
+  margin-right: 40px;
+}
+
+.dropdown
+{
+  float: right;
+  width: 60% !important;
+}
+
+.commentInput
+{
+  border-top: 1px solid lightgray;
+  width: 60% !important;
+  margin: 1% 25% 0 25%;
+}
+
+mat-form-field
+{
+  width: 100% !important;
+}
+
+.comment-tile
+{
+  position: relative;
+  left: 25%;
+}

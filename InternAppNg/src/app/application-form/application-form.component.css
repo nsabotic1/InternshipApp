@@ -1,0 +1,35 @@
+section {
+  background-color: #add8e6;
+}
+
+.formContainer {
+  height: 100vh;
+}
+
+@media (max-width: 450px) {
+  .formContainer {
+    height: 100%;
+  }
+}
+
+button {
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+}
+
+section {
+  background-color: #add8e6;
+}
+
+input.ng-invalid.ng-touched {
+  border: solid 1px red;
+}
+
+img {
+  max-width: 630px;
+}
+
+#placeholder {
+  color: #808080;
+  font-style: italic;
+}

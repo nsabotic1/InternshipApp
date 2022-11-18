@@ -1,0 +1,36 @@
+<div class="containerNav" [class.is-mobileNav]="mobileQuery.matches">
+  <!-- navbar  -->
+  <mat-toolbar color="primary" class="toolbarNav shadow">
+    <mat-icon id="iconNav" (click)="snav.toggle()">menu</mat-icon>
+    <h1 class="app-nameNav">Dashboard</h1>
+    <button mat-raised-button type="submit" class="logout ms-auto danger" (click)="onLogout()">Log out</button>
+  </mat-toolbar>
+  <!-- sidenav -->
+  <mat-sidenav-container class="sidenav-containerNav" [hasBackdrop]="true"
+    [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+    <mat-sidenav #snav [mode]="'over'" [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+      <!-- sidebar responsiveness -->
+      <mat-nav-list>
+        <a mat-list-item [ngClass]="{'positive' : this.selectedButton == 1,
+                    'negative' : this.selectedButton != 1}" routerLink="application" (click)="onSelect(1)">
+          <mat-icon class="iconSide">format_list_bulleted</mat-icon>Applications
+        </a>
+
+        <a mat-list-item [ngClass]="{'positive' : this.selectedButton == 2,
+                    'negative' : this.selectedButton != 2}" routerLink="selection" (click)="onSelect(2)">
+          <mat-icon class="iconSide">edit_calendar</mat-icon>Selections
+        </a>
+        <!-- shows only if logged in user is admin -->
+        <a mat-list-item [ngClass]="{'positive' : this.selectedButton == 3,
+                    'negative' : this.selectedButton != 3}" routerLink="users" *ngIf="this.isAdmin"
+          (click)="onSelect(3)">
+          <mat-icon class="iconSide">supervised_user_circle</mat-icon>Users
+        </a>
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

@@ -1,0 +1,53 @@
+<section>
+  <div class=" formContainer" style="overflow: hidden;">
+    <div class="row d-flex justify-content-center h-100 align-items-center">
+
+      <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1 p-5 p-md-0">
+        <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm.value)">
+          <!-- First Name -->
+          <div class="form-outline mb-4">
+            <input type="text" id="form3Example3" class="form-control form-control-lg" placeholder="First Name"
+              id="firstName" required ngModel name="firstName" />
+          </div>
+          <!-- Last name  -->
+          <div class="form-outline mb-4">
+            <input type="text" id="form3Example3" class="form-control form-control-lg" placeholder="Last Name"
+              id="lastName" required ngModel name="lastName" />
+          </div>
+          <!-- Email -->
+          <div class="form-outline mb-4">
+            <input type="email" id="form3Example3" class="form-control form-control-lg" placeholder="Email" id="email"
+              required ngModel email name="email" />
+          </div>
+          <!-- EduLevel Dropdown -->
+          <div class="form-outline mb-4">
+            <select class="form-control" placeholder="Education level" id="educationLevel" required ngModel
+              name="educationLevel">
+              <option id="placeholder" value="" disabled selected hidden>Choose your education level</option>
+              <option value="1">High School</option>
+              <option value="2">Bachelor</option>
+              <option value="3">Master</option>
+              <option value="4">PhD</option>
+            </select>
+          </div>
+          <!-- cover Letter  -->
+          <div class="form-outline mb-4">
+            <textarea type="text-area" rows="3" id="form3Example3" class="form-control form-control-lg"
+              placeholder="Cover Letter" id="coverLetter" required ngModel name="coverLetter"> </textarea>
+          </div>
+          <!-- cv -->
+          <div class="form-outline mb-4">
+            <input type="url" id="form3Example3" class="form-control form-control-lg" placeholder="Url to CV" id="cv"
+              required ngModel name="cv" />
+          </div>
+          <!-- button  -->
+          <button type="submit" class="btn btn-primary btn-lg">Apply</button>
+        </form>
+      </div>
+      <!-- image  -->
+      <div class="col-md-9 col-lg-6 col-xl-5 mb-5">
+        <img src="../../assets/applyPage.png" class="img-fluid" alt="Sample image">
+      </div>
+    </div>
+  </div>
+</section>

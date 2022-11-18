@@ -1,0 +1,36 @@
+<div *ngIf="!showSpinner">
+  <div class="container-fluid application">
+    <div class="row flex-nowrap">
+      <div class="col">
+        <!-- User Table -->
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col" class="col-3">Id</th>
+              <th scope="col" class="col-3">Username</th>
+              <th scope="col" class="col-3">Email</th>
+              <th class="col-3">Delete User</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of users">
+              <td class="align-middle col-3">{{ user.id }}</td>
+              <td class="align-middle col-3">{{ user.userName }}</td>
+              <td class="align-middle col-3">{{ user.email }}</td>
+              <td class="col-3 align-middle"><button mat-button type="submit" class="delete ms-auto "
+                  (click)="onClickDelete(user.id)">Delete</button></td>
+            </tr>
+          </tbody>
+        </table>
+        <!-- Add User button -->
+        <button mat-mini-fab class="add" (click)="openDialog()">
+          <mat-icon>add</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="showSpinner">
+  <app-spinner></app-spinner>
+</div>

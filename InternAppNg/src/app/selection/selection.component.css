@@ -1,0 +1,32 @@
+
+.selection
+{
+  width: 90%;
+  margin: 2% 10% 2% 10%;
+  display: block;
+}
+
+.filter
+{
+  width: 80%;
+  margin: 0% 10%;
+}
+
+.Dfilter
+{
+  width: 80%;
+  margin: 0% 10%;  
+}
+
+.reset
+{ 
+  margin: 0% 10%;
+  margin-top: 10px;
+}
+
+#adding
+{
+  float: right;
+  margin: 0% 10%;
+  margin-top: 10px;
+}

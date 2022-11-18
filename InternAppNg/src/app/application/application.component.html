@@ -1,0 +1,70 @@
+<div>
+  <div *ngIf="!showSpinner !rowSelected">
+    <!-- filters -->
+    <mat-form-field class="filter mt-3">
+      <input matInput type="text" (keyup)="applyFilter($event)" placeholder="Filter" [(ngModel)]="search">
+    </mat-form-field>
+    <div class="chips">
+      <strong>Education Level:</strong>
+      <mat-chip-list selectable="false">
+        <mat-chip [selected]="selectedChip == 1" (click)="changeSelectedChip(1)">High School</mat-chip>
+        <mat-chip [selected]="selectedChip == 2" (click)="changeSelectedChip(2)">Bachelor</mat-chip>
+        <mat-chip [selected]="selectedChip == 3" (click)="changeSelectedChip(3)">Master</mat-chip>
+        <mat-chip [selected]="selectedChip == 4" (click)="changeSelectedChip(4)">PHD</mat-chip>
+      </mat-chip-list>
+      <hr>
+      <strong>Status: </strong>
+      <mat-chip-list selectable="false">
+        <mat-chip [selected]="statusChipId == 1" (click)="statusChip(1)">Applied</mat-chip>
+        <mat-chip [selected]="statusChipId == 2" (click)="statusChip(2)">Pre Selection</mat-chip>
+        <mat-chip [selected]="statusChipId == 3" (click)="statusChip(3)">In Selection</mat-chip>
+        <mat-chip [selected]="statusChipId == 4" (click)="statusChip(4)">Completed</mat-chip>
+        <mat-chip [selected]="statusChipId == 5" (click)="statusChip(5)">Rejected</mat-chip>
+      </mat-chip-list>
+      <button class="reset" mat-raised-button color="warn" (click)="resetChips()">Reset filters</button>
+    </div>
+    <!-- Display table  -->
+    <div class="container-fluid application">
+      <div class="row flex-nowrap">
+        <div class="col py-3">
+          <table class="table" matSort (matSortChange)="sortData($event)">
+            <thead>
+              <tr>
+                <th scope="col" mat-sort-header="Id">Id</th>
+                <th scope="col" mat-sort-header="firstName">First Name</th>
+                <th scope="col" mat-sort-header="lastName">Last Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Education Level</th>
+                <th scope="col">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="cursor: pointer;" (click)="onSelect(application)" *ngFor="
+                let application of applications
+                  | paginate: { itemsPerPage: 1, currentPage: page, totalItems: total }
+              ">
+                <th scope="row">{{ application.id }}</th>
+                <td>{{ application.firstName }}</td>
+                <td>{{ application.lastName }}</td>
+                <td>{{ application.email }}</td>
+                <td>{{ application.educationLevel }}</td>
+                <td>{{ application.status }}</td>
+              </tr>
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- pagination -->
+  <div class="d-flex justify-content-center">
+    <pagination-controls class="pagination" previousLabel="&lsaquo;&lsaquo;" nextLabel="&rsaquo;&rsaquo;"
+      (pageChange)="pageChangeEvent($event)"></pagination-controls>
+  </div>
+  <div *ngIf="showSpinner">
+    <app-spinner></app-spinner>
+  </div>
+</div>

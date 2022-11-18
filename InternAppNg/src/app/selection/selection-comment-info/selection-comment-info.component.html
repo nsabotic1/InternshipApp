@@ -1,0 +1,13 @@
+<div class="commentInput">
+  <mat-form-field>
+    <input matInput placeholder="Add A Comment" #commentInput>
+  </mat-form-field>
+  <button type="submit" class="btn btn-primary" (click)="onCommentSubmit(commentInput.value)">Add Comment</button>
+</div>
+<div class="comment-tile">
+  <mat-list>
+    <mat-card *ngFor="let comment of comments">
+      <mat-card-content>{{comment.body}}</mat-card-content>
+    </mat-card>
+  </mat-list>
+</div>

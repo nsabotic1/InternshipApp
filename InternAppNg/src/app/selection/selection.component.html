@@ -1,0 +1,50 @@
+
+<mat-form-field class="filter">
+  <input matInput type="text" (keyup)="nameFilter($event)" placeholder="Name" [(ngModel)]="search">
+</mat-form-field>
+  <br>
+<mat-form-field class="Dfilter">
+  <input matInput type="text" (keyup)="descriptionFilter($event)" placeholder="Description"  [(ngModel)]="description">
+</mat-form-field>
+<button class="reset" mat-raised-button color="warn" (click)="resetFilters()">Reset filters</button>
+<button type="button" class="btn btn-primary" id="adding" [routerLink]="['../add']">Add Selection</button>
+<div class="container-fluid selection">
+  <div class="row flex-nowrap">
+    <div class="col py-3">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Start date</th>
+            <th scope="col">End date</th>
+            <th scope="col">Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="cursor: pointer;" (click)="onSelect(selection)"
+            *ngFor="let selection of selections | paginate: { itemsPerPage: 1, currentPage: page, totalItems: total}">
+            <td>{{ selection.name }}</td>
+            <td>{{ selection.startDate | date:"dd/MM/yyyy"}}</td>
+            <td>{{ selection.endDate | date:"dd/MM/yyyy"}}</td>
+            <td>{{ selection.description }}</td>
+            <td> <button role="button" class="btn btn-primary" [routerLink]="['../selection/edit', selection.id]">Edit</button></td>
+            <td> <button type="submit" class="btn btn-link" [routerLink]="['../selection', selection.id]">Details</button></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="col-md-12">
+          <pagination-controls
+            class="pagination"
+            previousLabel="&lsaquo;&lsaquo;"
+            nextLabel="&rsaquo;&rsaquo;"
+            (pageChange)="pageChangeEvent($event)">
+          </pagination-controls>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="rowSelected">
+  <app-selection-comment-info [comments]="comments" [selection]="selection"></app-selection-comment-info>
+</div>
+
+

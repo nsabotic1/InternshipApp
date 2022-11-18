@@ -1,0 +1,54 @@
+.containerNav {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.is-mobileNav .toolbarNav {
+  position: fixed;
+  z-index: 2;
+}
+
+h1.app-nameNav {
+  margin-left: 8px;
+}
+
+.sidenav-containerNav {
+  flex: 1;
+  min-width: 140px;
+}
+
+.is-mobileNav .sidenav-containerNav {
+  flex: 1 0 auto;
+}
+
+#iconNav {
+  font-size: 28px;
+  margin-bottom: 5px;
+}
+
+.iconSide{
+  margin-right: 10px;
+}
+
+button{
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+}
+
+.logout {
+  color: white;
+  background-color: rgb(155, 30, 30);
+}
+
+.positive {
+  color: #1d6eaa;
+}
+
+.negative {
+  color : #000;
+}

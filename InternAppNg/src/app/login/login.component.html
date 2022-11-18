@@ -1,0 +1,24 @@
+<section class="vh-100">
+  <div class=" formContainer" style="overflow: hidden;">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-md-9 col-lg-6 col-xl-5">
+        <img src="../../assets/loginImage.png" class="img-fluid" alt="Sample image">
+      </div>
+      <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+        <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm.value)">
+          <!-- Username  -->
+          <div class="form-outline mb-4">
+            <input type="username" id="form3Example3" class="form-control form-control-lg"
+              placeholder="Enter your username" id="username" required ngModel name="username" />
+          </div>
+          <!-- password  -->
+          <div class="form-outline mb-3">
+            <input type="password" id="form3Example4" class="form-control form-control-lg"
+              placeholder="Enter your password" id="password" required ngModel name="password" />
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg">Login</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

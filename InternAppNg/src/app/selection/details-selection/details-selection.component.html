@@ -1,0 +1,48 @@
+<div class="container-fluid selection">
+  <div class="row flex-nowrap">
+    <div class="col py-3" *ngIf="selection"> 
+      <h1>Selection: {{selection.name}}</h1>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">First name</th>
+            <th scope="col">Last name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Education level</th>
+          </tr>
+        </thead>
+        <tbody > 
+            <tr *ngFor="let appl of selection.applications; let i = index">
+            <td>{{ appl.firstName }}</td>
+            <td>{{ appl.lastName }}</td>
+            <td>{{ appl.email }}</td>
+            <td>{{ appl.educationLevel }}</td>
+            <td><button type="button" class="btn btn-danger" (click)="OnDeleteApplicants(selection.id, appl.id,i)">Delete</button></td>
+          </tr> 
+        </tbody>  
+      </table>
+      <h1>Avaliable applicants:</h1>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">First name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Education Level</th>
+            <th scope="col">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let appl of applicants; let i = index">
+            <td>{{ appl.firstName }}</td>
+            <td>{{ appl.lastName }}</td>
+            <td>{{ appl.educationLevel }}</td>
+            <td>{{ appl.status }}</td>
+            <td>
+            <button  type="button" class="btn btn-primary" (click)="OnAddApplicants(selection.id, appl.id, i)" >Add</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

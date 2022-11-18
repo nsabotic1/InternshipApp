@@ -1,0 +1,20 @@
+<div class="form-group">
+    <h1>Add Selection</h1>
+    <form #selectionForm="ngForm" (ngSubmit)="getSelectionData(selectionForm.value)">
+        <input  type="text" ngModel name="name" placeholder="Name" required class="input_field" >
+        <br>
+        <label>Start date:</label>
+        <br>
+        <input  type="date"  ngModel name="StartDate" required placeholder="Start date" class="input_field" >
+        <br>
+        <label>End date:</label>
+        <br>
+        <input type="date" ngModel name="EndDate" required placeholder="End Date"  class="input_field" >
+        <br>
+        <input  type="text" ngModel name="description" required placeholder="Description"  class="input_field">
+        <br><br>
+        <button type="submit" class="btn btn-primary" [disabled]="!selectionForm.valid">Add</button>
+        <button type="button" class="btn btn-secondary" id="cancel"(click)="onCancel()">Cancel</button>
+        <br><br>
+    </form>
+ </div>

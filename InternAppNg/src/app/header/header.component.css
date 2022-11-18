@@ -1,0 +1,8 @@
+.navbar {
+  background-color: #145DA0;
+
+}
+
+.contentContainer {
+  height: calc(100vh - 250px);
+}

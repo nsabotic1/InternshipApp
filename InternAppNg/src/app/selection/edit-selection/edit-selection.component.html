@@ -1,0 +1,19 @@
+<div class="container" *ngIf="selection">
+    <h1>Update selection</h1>
+    <form #editSelectionForm="ngForm">
+        <input  type="text"[ngModel]="name" name="name" placeholder="Name" required class="input_field" >
+        <br>
+        <label>Start date:</label>
+        <br>
+        <input  type="date"  [ngModel]="start" name="StartDate" placeholder="Start date" required class="input_field" >
+        <br>
+        <label>End date:</label>
+        <br>
+        <input type="date" [ngModel]="end" name="EndDate" placeholder="End Date"  required class="input_field" >
+        <br>
+        <input  type="text" [ngModel]="description" name="description" placeholder="Description" required class="input_field">
+        <br><br>
+        <button type="submit" class="btn btn-primary" [disabled]="!editSelectionForm.valid" (click)="onUpdateSelection(editSelectionForm)" >Update</button>
+        <button type="button" class="btn btn-secondary" id="cancel"(click)="onCancel()">Cancel</button>
+    </form>
+</div>
